@@ -89,9 +89,9 @@ public class CustomerController {
         return new ResponseEntity<>(customerService.findAll().stream().sorted(Comparator.comparing(Customer::getCustAccBalance)).toList(), HttpStatus.OK);
     }
 
-    @GetMapping("/sortbydob")
+    @GetMapping("/sortbydobdesc")
     public ResponseEntity<List<Customer>> sortByDOB() {
-        return new ResponseEntity<>(customerService.findAll().stream().sorted(Comparator.comparing(Customer::getCustDOB)).toList(), HttpStatus.OK);
+        return new ResponseEntity<>(customerService.findAll().stream().sorted(Comparator.comparing(Customer::getCustDOB).reversed()).toList(), HttpStatus.OK);
     }
 
     @GetMapping("/findbyanyinput")
